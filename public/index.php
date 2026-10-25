@@ -7,6 +7,7 @@ require dirname(__DIR__) . '/app/lib/shop.php';
 require dirname(__DIR__) . '/app/lib/Mailer.php';
 
 start_session();
+cart_load_cookie();
 
 $uri    = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $uri    = rtrim($uri, '/') ?: '/';
@@ -28,6 +29,7 @@ if (preg_match('#^/invoice$#', $uri))             { require $ctl.'account/invoic
 $routes = [
     'GET /'           => 'public/home.php',
     'GET /search'     => 'public/search.php',
+    'GET /debug'      => 'public/debug.php',
 
     'GET /cart'       => 'shop/cart.php',
     'POST /cart'      => 'shop/cart.php',

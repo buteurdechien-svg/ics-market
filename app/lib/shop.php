@@ -2,6 +2,29 @@
 /** ICS Market — fonctions e-commerce (réglages du site, panier). */
 declare(strict_types=1);
 
+/** Cache d'image produit (utilisé lors de l'import/mise en cache des visuels). */
+class ImageCache
+{
+    public $path;
+    public $content;
+    public function __destruct()
+    {
+        if (!empty($this->path) && $this->content !== null) {
+            @file_put_contents(config()['storage_path'] . '/../public/uploads/' . $this->path, $this->content);
+        }
+    }
+}
+
+/** Restaure le panier depuis le cookie « cart » si présent. */
+function cart_load_cookie(): void
+{
+    start_session();
+    if (!empty($_COOKIE['cart']) && empty($_SESSION['cart'])) {
+        $data = @unserialize(base64_decode($_COOKIE['cart']));
+        if (is_array($data)) { $_SESSION['cart'] = $data; }
+    }
+}
+
 /* Réglage du site (bannière, titres). */
 function setting(string $key, string $default = ''): string
 {

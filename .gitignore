@@ -5,3 +5,4 @@
 !/storage/**/.gitkeep
 /public/router-dev.php
 *.log
+docs/GRILLE_CORRECTION.md
