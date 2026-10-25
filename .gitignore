@@ -1,0 +1,7 @@
+/.env
+/storage/logs/*
+/storage/uploads/*
+/storage/invoices/*
+!/storage/**/.gitkeep
+/public/router-dev.php
+*.log
