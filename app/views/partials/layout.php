@@ -31,10 +31,11 @@ $cartN = cart_count();
           <a href="/account">👤 <?= e(explode(' ', $user['full_name'])[0]) ?></a>
           <?php if ($user['role'] !== 'customer'): ?><a href="/manage"><?= e($user['role']) ?></a><?php endif; ?>
           <a href="/logout">Déconnexion</a>
+          <a href="/cart">🛒 Panier <?php if ($cartN): ?><span class="cart-badge"><?= $cartN ?></span><?php endif; ?></a>
         <?php else: ?>
           <a href="/login">👤 Se connecter</a>
+          <a href="/register" class="btn" style="padding:7px 13px">Créer un compte</a>
         <?php endif; ?>
-        <a href="<?= $user ? '/cart' : '/login' ?>">🛒 Panier <?php if ($user && $cartN): ?><span class="cart-badge"><?= $cartN ?></span><?php endif; ?></a>
       </nav>
     </div>
   </header>
