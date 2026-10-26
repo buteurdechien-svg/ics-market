@@ -44,6 +44,24 @@ function price(int $amount): string
     return number_format($amount, 0, ',', ' ') . ' FCFA';
 }
 
+/**
+ * Image d'un produit : utilise une VRAIE photo si elle existe dans
+ * public/assets/img/products/<slug>.(jpg|jpeg|png|webp), sinon l'illustration.
+ * Pour afficher de vraies photos, déposez vos fichiers dans ce dossier,
+ * nommés d'après le « slug » du produit.
+ */
+function product_image(array $p): string
+{
+    $slug = $p['slug'] ?? '';
+    $base = dirname(__DIR__, 2) . '/public/assets/img/products/';
+    foreach (['jpg','jpeg','png','webp'] as $ext) {
+        if ($slug !== '' && is_file($base . $slug . '.' . $ext)) {
+            return '/assets/img/products/' . $slug . '.' . $ext;
+        }
+    }
+    return '/assets/img/' . ($p['image'] ?? 'logo.svg');
+}
+
 /* Étoiles d'une note. */
 function stars(float $r): string
 {

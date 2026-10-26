@@ -1,5 +1,6 @@
 <?php
-/** Panier. */
+/** Panier (réservé aux clients connectés). */
+require_login();
 $pdo = Database::pdo();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

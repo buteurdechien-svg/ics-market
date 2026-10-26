@@ -13,6 +13,10 @@ $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
     if ($action === 'add_cart') {
+        if (!current_user()) {
+            flash('info', "Connectez-vous ou créez un compte pour ajouter au panier.");
+            redirect('/login');
+        }
         $qty = (int)($_POST['qty'] ?? 1);
         $cart = cart_get();
         $cart[$id] = ($cart[$id] ?? 0) + max(1, $qty);

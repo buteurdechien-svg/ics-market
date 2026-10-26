@@ -34,7 +34,7 @@ $cartN = cart_count();
         <?php else: ?>
           <a href="/login">👤 Se connecter</a>
         <?php endif; ?>
-        <a href="/cart">🛒 Panier <?php if ($cartN): ?><span class="cart-badge"><?= $cartN ?></span><?php endif; ?></a>
+        <a href="<?= $user ? '/cart' : '/login' ?>">🛒 Panier <?php if ($user && $cartN): ?><span class="cart-badge"><?= $cartN ?></span><?php endif; ?></a>
       </nav>
     </div>
   </header>

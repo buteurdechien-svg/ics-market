@@ -9,7 +9,7 @@
         <input type="hidden" name="action" value="update">
         <?php foreach ($items as $it): $p=$it['p']; ?>
           <div class="cart-row">
-            <img src="/assets/img/<?= e($p['image']) ?>" alt="">
+            <img src="<?= e(product_image($p)) ?>" alt="">
             <div style="flex:1">
               <a href="/p/<?= (int)$p['id'] ?>"><strong><?= e($p['name']) ?></strong></a>
               <div class="muted"><?= e(price((int)$p['price'])) ?> l'unité</div>

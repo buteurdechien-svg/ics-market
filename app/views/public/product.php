@@ -3,9 +3,12 @@
 
   <div class="pd">
     <div class="gallery">
-      <img src="/assets/img/<?= e($product['image']) ?>" alt="<?= e($product['name']) ?>">
+      <img src="<?= e(product_image($product)) ?>" alt="<?= e($product['name']) ?>">
     </div>
     <div>
+      <?php if (!empty($product['brand'])): ?>
+        <div class="muted" style="text-transform:uppercase;letter-spacing:.05em;font-size:.8rem;font-weight:700;color:var(--brand-600)"><?= e($product['brand']) ?></div>
+      <?php endif; ?>
       <h1><?= e($product['name']) ?></h1>
       <div class="stars" style="color:var(--star)"><?= stars((float)$product['rating_avg']) ?> <span class="muted">(<?= count($reviews) ?> avis)</span></div>
       <div class="price"><?= e(price((int)$product['price'])) ?></div>
@@ -26,6 +29,21 @@
       </form>
     </div>
   </div>
+
+  <?php if (!empty($product['specs'])): ?>
+  <div class="panel" style="margin-top:22px">
+    <h2>Caractéristiques</h2>
+    <table>
+      <?php foreach (preg_split('/\r?\n/', (string)$product['specs']) as $line): $line=trim($line); if($line==='') continue;
+        $parts = explode(':', $line, 2); ?>
+        <tr>
+          <th style="width:34%"><?= e(trim($parts[0])) ?></th>
+          <td><?= e(isset($parts[1]) ? trim($parts[1]) : '') ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </table>
+  </div>
+  <?php endif; ?>
 
   <div class="panel" style="margin-top:24px">
     <h2>Avis clients</h2>

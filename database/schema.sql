@@ -51,7 +51,9 @@ CREATE TABLE products (
   seller_id    INT NULL,
   name         VARCHAR(160) NOT NULL,
   slug         VARCHAR(180) NOT NULL,
+  brand        VARCHAR(80) NULL,
   description  TEXT NULL,
+  specs        TEXT NULL,
   price        BIGINT NOT NULL DEFAULT 0,      -- FCFA entier
   stock        INT NOT NULL DEFAULT 0,
   image        VARCHAR(160) NULL,              -- image principale (dans public/assets/img ou /uploads)
