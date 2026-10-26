@@ -70,11 +70,11 @@ return [
 ['maison','iLux','iLux Chef — Cuiseur à riz 1,8 L', 24900, 40, 'kettle.svg', 'Cuiseur à riz automatique maintien au chaud.', "Capacité : 1,8 L\nMaintien au chaud\nCuve antiadhésive\nAccessoires inclus"],
 ['maison','iLux','iLux Air — Climatiseur mobile', 329000, 6, 'fridge.svg', 'Climatiseur mobile pour pièce moyenne.', "Puissance : 9000 BTU\nTélécommande\n3 modes\nRoulettes"],
 ['maison','iLux','iLux Clean — Aspirateur traîneau', 69900, 18, 'blender.svg', 'Aspirateur puissant avec filtre HEPA.', "Puissance : 1800W\nFiltre HEPA\nCuve 3 L\nEnrouleur de câble"],
-['maison','Lagune','Lagune Confort — Matelas 140x190', 149000, 15, 'fridge.svg', 'Matelas mousse à mémoire de forme.', "Taille : 140x190\nMousse mémoire\nÉpaisseur : 20 cm\nHousse déhoussable"],
-['maison','Lagune','Lagune — Jeu de casseroles 5 pcs', 34900, 30, 'kettle.svg', 'Batterie de cuisine inox 5 pièces.', "Matière : inox\n5 pièces\nCompatible induction\nCouvercles verre"],
-['maison','Lagune','Lagune — Service d\'assiettes 18 pcs', 19900, 35, 'soap.svg', 'Service de table complet pour 6 personnes.', "18 pièces\nFaïence\nPasse au lave-vaisselle\nMicro-ondes OK"],
-['maison','Lagune','Lagune — Parure de lit 2 places', 17900, 40, 'tshirt.svg', 'Housse de couette et taies, 100% coton.', "2 places (240x220)\n100% coton\n1 housse + 2 taies\nLavage 40°C"],
-['maison','Lagune','Lagune — Rideaux occultants (x2)', 14900, 45, 'wax.svg', 'Paire de rideaux occultants thermiques.', "Dimensions : 140x260\nOccultant\nŒillets\nLavable"],
+['maison','Dunlopillo','Dunlopillo — Matelas 140x190', 149000, 15, 'fridge.svg', 'Matelas mousse à mémoire de forme.', "Taille : 140x190\nMousse mémoire\nÉpaisseur : 20 cm\nHousse déhoussable"],
+['maison','Tefal','Tefal — Jeu de casseroles 5 pcs', 34900, 30, 'kettle.svg', 'Batterie de cuisine inox 5 pièces.', "Matière : inox\n5 pièces\nCompatible induction\nCouvercles verre"],
+['maison','Luminarc','Luminarc — Service d\'assiettes 18 pcs', 19900, 35, 'soap.svg', 'Service de table complet pour 6 personnes.', "18 pièces\nVerre opale\nPasse au lave-vaisselle\nMicro-ondes OK"],
+['maison','Tex','Tex — Parure de lit 2 places', 17900, 40, 'tshirt.svg', 'Housse de couette et taies, 100% coton.', "2 places (240x220)\n100% coton\n1 housse + 2 taies\nLavage 40°C"],
+['maison','Tex','Tex — Rideaux occultants (x2)', 14900, 45, 'wax.svg', 'Paire de rideaux occultants thermiques.', "Dimensions : 140x260\nOccultant\nŒillets\nLavable"],
 
 // ───────────────────────── Mode (20) ─────────────────────────
 ['mode','Waxéa','Waxéa — Pagne wax 6 yards', 15000, 100, 'wax.svg', 'Pagne wax de qualité, couleurs éclatantes.', "Longueur : 6 yards\n100% coton\nMotif wax\nLavage 30°C"],
