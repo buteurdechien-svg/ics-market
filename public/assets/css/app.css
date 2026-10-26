@@ -125,3 +125,16 @@ th{color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;l
 
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.pd{grid-template-columns:1fr}}
 @media(max-width:560px){.search{display:none}.top .links{gap:12px}.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+/* Moyens de paiement */
+.paymethods{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.paymethod{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;transition:border-color .15s,background .15s}
+.paymethod:hover{border-color:var(--brand-600);background:var(--surface-2)}
+.paymethod input{accent-color:var(--brand-600)}
+.pm-tag{color:var(--ink-soft);font-size:.82rem;margin-left:auto}
+.pm-badge{display:inline-block;font-weight:800;letter-spacing:.02em;color:#fff;padding:5px 11px;border-radius:7px;font-size:.86rem;min-width:118px;text-align:center}
+.pm-visa{background:#1a1f71}
+.pm-orange{background:#ff6600}
+.pm-wave{background:#1dc3f0;color:#05313d}
+.pm-mtn{background:#ffcc00;color:#4a3a00}
+.pm-moov{background:#0a6cff}

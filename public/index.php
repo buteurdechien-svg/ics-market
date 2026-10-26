@@ -25,6 +25,7 @@ if (preg_match('#^/c/([a-z0-9\-]+)$#', $uri, $m)) { $_GET['slug'] = $m[1]; requi
 if (preg_match('#^/p/(\d+)#', $uri, $m))          { $_GET['id']   = $m[1]; require $ctl.'public/product.php'; exit; }
 if (preg_match('#^/order/(\d+)$#', $uri, $m))     { $_GET['id']   = $m[1]; require $ctl.'account/order.php'; exit; }
 if (preg_match('#^/invoice$#', $uri))             { require $ctl.'account/invoice.php'; exit; }
+if (preg_match('#^/payment/receipt$#', $uri))     { require $ctl.'shop/receipt.php'; exit; }
 
 $routes = [
     'GET /'           => 'public/home.php',
@@ -35,6 +36,8 @@ $routes = [
     'POST /cart'      => 'shop/cart.php',
     'GET /checkout'   => 'shop/checkout.php',
     'POST /checkout'  => 'shop/checkout.php',
+    'GET /payment'    => 'shop/payment.php',
+    'POST /payment'   => 'shop/payment.php',
 
     'GET /login'      => 'auth/login.php',
     'POST /login'     => 'auth/login.php',

@@ -10,7 +10,7 @@ $pdo = Database::pdo();
 
 echo "Nettoyage...\n";
 $pdo->exec('SET FOREIGN_KEY_CHECKS = 0');
-foreach (['coupon_uses','coupons','order_items','orders','cart_items','carts','reviews',
+foreach (['payments','coupon_uses','coupons','order_items','orders','cart_items','carts','reviews',
           'product_images','products','categories','addresses','otp_challenges',
           'auth_events','security_events','site_settings','users'] as $t) {
     $pdo->exec("TRUNCATE TABLE $t");

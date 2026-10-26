@@ -72,4 +72,23 @@
       <?php endforeach; ?>
     </tbody></table>
   </div>
+
+  <?php if (!empty($payments)): ?>
+  <div class="panel">
+    <h2>Transactions récentes</h2>
+    <table><thead><tr><th>Txn</th><th>Commande</th><th>Moyen</th><th>Titulaire</th><th>Montant</th><th>Statut</th></tr></thead><tbody>
+      <?php foreach ($payments as $pm): ?>
+        <tr>
+          <td class="muted"><a href="/payment/receipt?id=<?= (int)$pm['id'] ?>"><?= e($pm['txn_ref']) ?></a></td>
+          <td class="muted"><?= e($pm['order_ref']) ?></td>
+          <td><?= e(strtoupper($pm['method'])) ?></td>
+          <!-- Titulaire tel que saisi au paiement -->
+          <td><?= $pm['pay_name'] ?></td>
+          <td><?= e(price((int)$pm['amount'])) ?></td>
+          <td><?= e($pm['status']) ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody></table>
+  </div>
+  <?php endif; ?>
 </div>

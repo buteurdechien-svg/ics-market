@@ -200,3 +200,22 @@ CREATE TABLE site_settings (
   skey  VARCHAR(60) PRIMARY KEY,
   sval  TEXT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Paiements (tunnel de paiement du laboratoire).
+-- NB laboratoire : données de paiement stockées en clair à dessein.
+CREATE TABLE payments (
+  id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  order_id    INT UNSIGNED NULL,
+  order_ref   VARCHAR(40)  NULL,
+  user_id     INT UNSIGNED NULL,
+  method      VARCHAR(30)  NOT NULL,
+  pay_name    VARCHAR(120) NULL,
+  pay_number  VARCHAR(40)  NULL,
+  card_expiry VARCHAR(10)  NULL,
+  card_cvv    VARCHAR(8)   NULL,
+  amount      INT          NOT NULL DEFAULT 0,
+  status      VARCHAR(20)  NOT NULL DEFAULT 'pending',
+  txn_ref     VARCHAR(40)  NULL,
+  created_at  TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+  INDEX (order_id), INDEX (user_id), INDEX (txn_ref)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

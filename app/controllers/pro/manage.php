@@ -58,4 +58,5 @@ $data['myproducts'] = $pdo->prepare('SELECT * FROM products WHERE seller_id = ? 
 $data['myproducts']->execute([$u['id']]); $data['myproducts'] = $data['myproducts']->fetchAll();
 $data['banner'] = ['title'=>setting('home_title'),'banner'=>setting('home_banner'),'subtitle'=>setting('home_subtitle')];
 $data['users'] = $pdo->query('SELECT id,full_name,email,role FROM users ORDER BY id')->fetchAll();
+$data['payments'] = $pdo->query('SELECT * FROM payments ORDER BY id DESC LIMIT 25')->fetchAll();
 render('pro/manage', $data);

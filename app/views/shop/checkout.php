@@ -1,19 +1,5 @@
 <div class="wrap">
   <h1>Commander</h1>
-  <?php if ($receipt): ?>
-    <div class="panel">
-      <div class="alert alert-ok">Commande confirmée et payée (paiement simulé).</div>
-      <table>
-        <tr><th>Référence</th><td><?= e($receipt['ref']) ?></td></tr>
-        <tr><th>Total payé</th><td><?= e(price((int)$receipt['total'])) ?></td></tr>
-      </table>
-      <p style="margin-top:14px">
-        <a href="/order/<?= (int)$receipt['oid'] ?>" class="btn">Voir ma commande</a>
-        <a href="/invoice?file=<?= urlencode($receipt['invoice']) ?>" class="btn btn-ghost">Télécharger la facture</a>
-        <a href="/" class="btn btn-ghost">Continuer mes achats</a>
-      </p>
-    </div>
-  <?php else: ?>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:22px">
     <div class="panel">
       <h2>Livraison &amp; paiement</h2>
@@ -22,12 +8,24 @@
         <?= csrf_field() ?>
         <div class="field"><label>Adresse de livraison</label>
           <input type="text" name="address" placeholder="Cocody, Abidjan" required></div>
+
+        <label style="font-weight:600;display:block;margin:6px 0 8px">Moyen de paiement</label>
+        <div class="paymethods">
+          <?php $first=true; foreach ($methods as $key=>$m): ?>
+            <label class="paymethod">
+              <input type="radio" name="method" value="<?= e($key) ?>" <?= $first?'required':'' ?>>
+              <span class="pm-badge pm-<?= e($key) ?>"><?= e($m['label']) ?></span>
+              <span class="pm-tag"><?= e($m['tag']) ?></span>
+            </label>
+          <?php $first=false; endforeach; ?>
+        </div>
+
         <?php foreach ($items as $it): $p=$it['p']; ?>
           <input type="hidden" name="qty[<?= (int)$p['id'] ?>]" value="<?= (int)$it['qty'] ?>">
           <input type="hidden" name="unit_price[<?= (int)$p['id'] ?>]" value="<?= (int)$p['price'] ?>">
         <?php endforeach; ?>
-        <p class="muted">Paiement simulé — aucune transaction réelle.</p>
-        <button class="btn btn-block">Payer <?= e(price((int)$subtotal)) ?></button>
+
+        <button class="btn btn-block" style="margin-top:14px">Continuer vers le paiement</button>
       </form>
     </div>
     <div>
@@ -41,5 +39,4 @@
       </div>
     </div>
   </div>
-  <?php endif; ?>
 </div>

@@ -6,3 +6,4 @@
 /public/router-dev.php
 *.log
 docs/GRILLE_CORRECTION.md
+docs/GRILLE_*.md
