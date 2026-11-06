@@ -7,3 +7,7 @@
 *.log
 docs/GRILLE_CORRECTION.md
 docs/GRILLE_*.md
+
+# Corrigés formateur — ne jamais publier
+docs/CATALOGUE_FORMATEUR.md
+docs/*_FORMATEUR.md

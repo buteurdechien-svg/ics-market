@@ -4,6 +4,7 @@
     <?php foreach ($errors as $e): ?><div class="alert alert-error"><?= e($e) ?></div><?php endforeach; ?>
     <form method="post" action="/login">
       <?= csrf_field() ?>
+      <input type="hidden" name="next" value="<?= e($_GET['next'] ?? '') ?>">
       <div class="field"><label>Adresse e-mail</label><input type="email" name="email" required autofocus></div>
       <div class="field"><label>Mot de passe</label><input type="password" name="password" required></div>
       <button class="btn btn-block">Se connecter</button>

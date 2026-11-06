@@ -3,6 +3,13 @@
 declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 
+/* CORS — ouvert pour permettre à l'app mobile web d'appeler l'API depuis n'importe quel domaine. */
+header('Access-Control-Allow-Origin: ' . ($_SERVER['HTTP_ORIGIN'] ?? '*'));
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Headers: Authorization, Content-Type');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, OPTIONS');
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'OPTIONS') { http_response_code(204); exit; }
+
 $pdo = Database::pdo();
 $uri = rtrim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '', '/');
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';

@@ -27,6 +27,13 @@ if (preg_match('#^/order/(\d+)$#', $uri, $m))     { $_GET['id']   = $m[1]; requi
 if (preg_match('#^/invoice$#', $uri))             { require $ctl.'account/invoice.php'; exit; }
 if (preg_match('#^/payment/receipt$#', $uri))     { require $ctl.'shop/receipt.php'; exit; }
 
+/* Redirection sortante — utilisée pour les liens de suivi (newsletter, partenaires). */
+if ($uri === '/go') {
+    $to = $_GET['url'] ?? $_GET['next'] ?? '/';
+    header('Location: ' . $to, true, 302);
+    exit;
+}
+
 $routes = [
     'GET /'           => 'public/home.php',
     'GET /search'     => 'public/search.php',

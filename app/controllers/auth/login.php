@@ -22,7 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $_SESSION['uid'] = (int)$u['id'];
             log_auth('login_ok', $email);
-            redirect('/account');
+            // Retour à la page demandée avant connexion (paramètre ?next=).
+            $next = $_POST['next'] ?? $_GET['next'] ?? '/account';
+            redirect($next !== '' ? $next : '/account');
         }
     }
 }

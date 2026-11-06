@@ -64,6 +64,24 @@ storage/       uploads privés, factures, journaux (hors public/)
 docs/          lettre de mission, modèle de rapport
 ```
 
+## Méthodologie — pentest web 100 % assisté par IA (sans Burp Suite)
+Ce cyber-range est pensé pour être audité **sans proxy d'interception**. Tout se
+trouve et s'exploite avec trois outils :
+- **le navigateur** : code source des pages, DevTools (onglet *Réseau*, *Console*,
+  *Application/Cookies*), modification d'un formulaire avant envoi ;
+- **`curl`** : rejouer et forger des requêtes (en-têtes, `-I` pour voir les
+  redirections et le CORS, cookies, `Authorization: Bearer`, méthodes `PATCH`) ;
+- **une IA** : lui faire lire une page, un fichier JS ou une réponse HTTP et lui
+  demander « qu'est-ce qui cloche ici ? », puis l'aider à rédiger la preuve.
+
+Les failles vont du **plus simple** (secrets oubliés dans le code source, page de
+debug, sauvegarde `.bak` servie en clair, CORS grand ouvert, redirection ouverte)
+au **plus avancé** (contrôle d'accès cassé, mass-assignment d'API, SSRF, upload,
+désérialisation). Beaucoup imitent les erreurs typiques des sites **générés à l'IA
+par des « vibe-codeurs »**. Rien n'est affiché : pas de flag, pas de niveau —
+le livrable est le **rapport d'audit**. Le corrigé détaillé (catalogue des failles,
+niveaux, correctifs) est réservé au formateur et **n'est pas publié** dans ce dépôt.
+
 ## Avertissement
 Vulnérabilités **intentionnelles**. Ne jamais déployer en production ni
 exposer sur un réseau public. Usage strictement en laboratoire isolé.

@@ -12,6 +12,8 @@ $cartN = cart_count();
   <title><?= e($title ?? 'ICS Market') ?> — ICS Market</title>
   <link rel="icon" href="/assets/img/logo.svg">
   <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/app.js" defer></script>
+  <!-- Déploiement : admin interne sur /manage · sauvegarde config : /config.php.bak · API : /api/v1 (CORS ouvert pour l'app mobile). Généré par l'assistant, à nettoyer avant prod. -->
 </head>
 <body>
   <div class="lab-banner">⚠️ SITE FICTIF — Laboratoire de formation au pentest. Données synthétiques. Volontairement vulnérable. Usage local uniquement.</div>

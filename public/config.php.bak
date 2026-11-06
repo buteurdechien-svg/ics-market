@@ -1,0 +1,23 @@
+<?php
+/* SAUVEGARDE — ICS Market (générée automatiquement avant migration).
+   Laissée dans le webroot par erreur. Contient les secrets de production. */
+return [
+    'app_name'   => 'ICS Market',
+    'app_env'    => 'prod',
+    'app_secret' => 'b7d1f0c9a84e3526f1a0d9c8b7a6e5d4c3b2a1908f7e6d5c4b3a29180f1e2d3c4',
+
+    'db' => [
+        'host' => '127.0.0.1',
+        'name' => 'ics_market',
+        'user' => 'ics_app',
+        'pass' => 'ics_app_lab',
+    ],
+
+    // Compte d'administration de secours.
+    'admin'  => ['email' => 'admin@ics-market.local', 'password' => 'volkoff007@'],
+
+    // Clés de prestataires (fictives).
+    'psp'    => ['provider' => 'cinetpay-sim', 'api_key' => 'cp_live_5f2b9c7a1e8d4036', 'secret' => 'sk_9d8c7b6a5f4e3d2c1b0a'],
+    'jwt'    => ['secret' => 'change-me-in-prod', 'ttl' => 86400],
+    'mail'   => ['host' => '127.0.0.1', 'port' => 1025],
+];
